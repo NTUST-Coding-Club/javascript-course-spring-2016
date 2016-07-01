@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>閏年判斷</title>
+</head>
+<body>
+	<p>
+		<label for="year_n">
+			請輸入西元年份：
+			<input type="text" id="year_n">
+		</label>
+	</p>
+
+	<button id="button01">這是閏年嗎？</button>
+
+	<script>
+		function calculate() {
+			// var n = parseInt("40" /* 含有數字的字串 */, 10 /* 以十進位表示 */);
+			var year = parseInt(year_n.value, 10);
+			// var year = year_n.value * 1;
+			// 以上兩行都在確定 year 會是一個數字
+
+			/*console.log("year_n.value 的類型是：" + typeof(year_n.value));
+			console.log("year 的類型是：" + typeof(year));
+
+			console.log(year + 999999);
+			console.log(year_n.value + 999999);
+			console.log(year_n.value - 999999);*/
+
+			// 如果（年份對4求於數 不是 0）-> 年份 不能夠被 4 整除
+			if(year % 4 != 0) {
+				alert('這不是閏年');
+
+			// 如果（年份對4求於數 是 0 並且 年份對100求於數 不是 0）
+			} else if (year % 4 == 0 && year % 100 != 0) {
+				alert('這是閏年');
+			}/* else if ( ???????????? ) {
+				alert('這不是閏年');
+			} else if ( ????????????) {
+				alert('這是閏年');
+			}*/ else {
+				alert('這我就不知道了 QQ');
+			}
+		}
+
+		button01.onclick = calculate;
+	</script>
+</body>
+</html>

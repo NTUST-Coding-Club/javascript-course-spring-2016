@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <label for="m1">
+            第一次期中考成績:
+            <input type="text" id="m1">
+        </label>
+    </p>
+    <p>
+        <label for="m2">
+            第二次期中考成績:
+            <input type="text" id="m2">
+        </label>
+    </p>
+
+    <button id="button01">幫我算一算期末考多少</button>
+
+    <script>
+        // var m1 = prompt('請輸入第一次期中考成績：');
+        // var m2 = prompt('請輸入第二次期中考成績：');
+
+        // m1 * 0.3 + m2 * 0.3 + f * 0.4 = 60
+        // x = 1
+        // x + 5 = 1 + 5
+        // m1 * 0.3 + m2 * 0.3 + f * 0.4 - (m1 * 0.3 + m2 * 0.3) = 60 - (m1 * 0.3 + m2 * 0.3)
+        // f * 0.4 = 60 - (m1 * 0.3 + m2 * 0.3)
+        // f * 0.4 / 0.4 = (60 - (m1 * 0.3 + m2 * 0.3)) / 0.4
+        // f = (60 - (m1 * 0.3 + m2 * 0.3)) / 0.4
+
+        function calculate() {
+            var s1 = m1.value;
+            var s2 = m2.value;
+            var f = (60 - (s1 * 0.3 + s2 * 0.3)) / 0.4;
+
+            if(f <= 0) {
+                alert("期末考不用來了，躺著過");
+            } else if(f <= 100) {
+                alert("期末考你還需要" + f + "分！");
+            } else {
+                alert('你可以去二退了');
+            }
+        }
+
+        button01.onclick = calculate;
+    </script>
+</body>
+</html>

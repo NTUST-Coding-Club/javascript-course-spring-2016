@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>因數分解</title>
+  <link rel="stylesheet" href="monokai.min.css" media="all">
+  <style>body { font-family: sans-serif; } pre { font-size: 1.2em; }</style>
+</head>
+<body>
+<h1>(質)因數分解</h1>
+<h2>打開 Console 看看！</h2>
+<pre><code id="code" class="lang-js"></code></pre>
+<script>
+// 因數分解
+
+// i 的範圍從 1 ~ n
+// 如果 i 是 n 的因數 則 印出 i
+function factorize(n) {
+  var factors = '1';
+  for(var i = 2; i <= n; i++) {
+    if(n % i == 0) {
+      factors = factors + ',' + i;
+    }
+  }
+  return factors;
+}
+
+// 質因數分解
+
+//   72
+// = 36 * 2
+// = 18 * 2 * 2
+// = 9  * 2 * 2 * 2
+// = 3  * 2 * 2 * 2 * 3
+// = 1  * 2 * 2 * 2 * 3 * 3
+function prime_factorize(n) {
+  var factors = '';
+  var i = 2;
+
+  while(n > 1) {
+    while(n % i == 0) {
+      n /= i;
+      factors += '*' + i;
+    }
+    i++;
+  }
+  // return factors; // 試試看取消這行的註解會怎麼樣
+  return factors.substr(1); // string.substr(1) 去掉第一個字
+}
+
+var n = 360360 // 2*2*2*3*3*5*7*11*13
+
+var factors = factorize(n);
+console.log(n + '的因數有：' + factors);
+
+var pfactors = prime_factorize(n);
+console.log(n + ' 質因數分解：' + pfactors);
+</script>
+<script src="highlight.min.js"></script>
+</body>
+</html>

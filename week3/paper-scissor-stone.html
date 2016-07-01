@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>剪刀石頭布</title>
+</head>
+<body>
+<script>
+
+function GetRandom(Min,Max){
+  return Math.floor(Math.random()* (Max-Min+1) )+Min;
+}
+
+function OutputType(number){
+  if(number == 1) {
+    return "布";
+  } else if(number == 2) {
+    return "剪刀";
+  } else if(number == 3) {
+    return "石頭";
+  }
+  return "未知！！！";
+}
+
+var user = prompt("輸入代號，布(1), 剪刀(2), 石頭(3)?");
+// 檢查 user 的輸入是否在範圍內？
+
+// 修改這行，做出一個電腦作弊的版本
+var computer = GetRandom( 1 , 3 );  //0: 布, 1: 剪刀, 2: 石頭
+
+console.log('玩家出 ' + OutputType(user));
+console.log('電腦出 ' + OutputType(computer));
+
+if(user == computer){
+  console.log('平手!');
+} else if(user - computer == 1 || user - computer == -2) {
+// } else if((user - computer + 3) % 3 == 1) {
+  console.log('玩家勝利!');
+} else {
+  console.log('電腦勝利!');
+}
+</script>
+</body>
+</html>
